@@ -271,7 +271,7 @@ class Vicon(object):
         if "Model Outputs" in self.data_dict:
             self._model_output = ModelOutput.ModelOutput(self.data_dict["Model Outputs"], self.joint_names)
         else:
-            print "No Model outputs"
+            print("No Model outputs")
 
     def _make_force_plates(self):
         """
@@ -293,9 +293,9 @@ class Vicon(object):
                                                               sensors["Force_Plate__Force_2"],
                                                               sensors["Force_Plate__Moment_2"])
             else:
-                print "No force plates"
+                print("No force plates")
         else:
-            print "No Devices"
+            print("No Devices")
 
     def _make_markers(self):
         markers = self.data_dict["Trajectories"]
@@ -315,9 +315,9 @@ class Vicon(object):
                     self._T_EMGs[int(filter(str.isdigit, t_key))] = EMG.EMG(t_key, sensors[t_key]["EMG"])
                     self._EMGs[int(filter(str.isdigit, e_key))] = EMG.EMG(e_key, sensors[e_key]["IM EMG"])
             else:
-                print "No EMGs"
+                print("No EMGs")
         else:
-            print "No Devices"
+            print("No Devices")
 
     def _make_IMUs(self):
         """
@@ -331,9 +331,9 @@ class Vicon(object):
                 for key in keys:
                     self._IMUs[int(filter(str.isdigit, key))] = IMU.IMU(key, sensors[key])
             else:
-                print "No IMUs"
+                print("No IMUs")
         else:
-            print "No Devices"
+            print("No Devices")
 
     def _make_marker_trajs(self):
         """
@@ -355,9 +355,9 @@ class Vicon(object):
                 for key in keys:
                     self._accels[int(filter(str.isdigit, key))] = Accel.Accel(key, sensors[key])
             else:
-                print "No Accels"
+                print("No Accels")
         else:
-            print "No Devices"
+            print("No Devices")
 
     def open_vicon_file(self, file_path):
         """
